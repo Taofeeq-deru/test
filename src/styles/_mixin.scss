@@ -1,0 +1,33 @@
+@mixin inputStyle() {
+  height: 2.7em;
+  width: 16em;
+  border: 1px solid #777777;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 1em;
+  &:focus {
+    box-shadow: 0 0 2px 1px rgb(0, 153, 255);
+    border: rgb(0, 153, 255);
+  }
+}
+
+@mixin btnStyle() {
+  height: 3em;
+  width: 7em;
+  background-color: rgb(0, 153, 255);
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-left: -6px;
+  transition: all 0.05s ease-in;
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(65, 173, 245);
+    font-weight: bolder;
+  }
+  &:focus {
+    outline: none;
+  }
+}

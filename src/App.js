@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+//import { useSelector, useDispatch } from "react-redux";
+//import { geolocation, search } from "./actions";
+import Layout from "./container/Layout";
 
 function App() {
+  //const cityReducer = useSelector((state) => state.cityReducer);
+  //const dispatch = useDispatch();
+
+  //const geoCity = "Kano";
+  //const searchCity = "Delta";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout />
+    /* <h5>City {cityReducer}</h5>
+      <button onClick={() => dispatch(geolocation(geoCity))}>
+        Geolocation
+      </button> */
+    /* <button onClick={() => dispatch(search(searchCity))}>Search</button> */
   );
 }
 
