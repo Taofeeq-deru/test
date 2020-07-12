@@ -1,0 +1,237 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: #343a40;
+}
+
+#container {
+  padding: 0;
+  margin: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 324px 1fr;
+      grid-template-columns: 1fr 324px 1fr;
+  -ms-grid-rows: 100px 85px max-content;
+      grid-template-rows: 100px 85px -webkit-max-content;
+      grid-template-rows: 100px 85px max-content;
+      grid-template-areas: "head head head" "null form free" "empty city nada";
+  row-gap: 3em;
+}
+
+#header {
+  background-color: #059191;
+  color: #fff;
+  padding-left: 7%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: head;
+}
+
+#form {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: form;
+}
+
+#box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: city;
+}
+
+.center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#notification {
+  border-radius: 5px;
+  max-width: 290px;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.success {
+  background-color: #39b439;
+  color: #fff;
+}
+
+.neutral {
+  background-color: #059191;
+  color: #fff;
+}
+
+.error {
+  background-color: #df3535;
+  color: #fff;
+}
+
+#cityInput {
+  height: 2.7em;
+  width: 16em;
+  border: 1px solid #777777;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-left: 1em;
+}
+
+#cityInput:focus {
+  -webkit-box-shadow: 0 0 2px 1px #0099ff;
+          box-shadow: 0 0 2px 1px #0099ff;
+  border: #0099ff;
+}
+
+#submitBtn {
+  height: 3em;
+  width: 7em;
+  background-color: #0099ff;
+  color: #ffffff;
+  font-weight: 700;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-left: -6px;
+  -webkit-transition: all 0.05s ease-in;
+  transition: all 0.05s ease-in;
+}
+
+#submitBtn:hover {
+  cursor: pointer;
+  background-color: #41adf5;
+  font-weight: bolder;
+}
+
+#submitBtn:focus {
+  outline: none;
+}
+
+.bordered {
+  border: 1px solid #8b8b8b;
+  -webkit-box-shadow: 0 2px 2px 1px #8b8b8b;
+          box-shadow: 0 2px 2px 1px #8b8b8b;
+  border-radius: 5px;
+}
+
+.city {
+  margin-bottom: 1em;
+  color: #343a40;
+  max-width: 320px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 60px 1fr 40px;
+      grid-template-columns: 60px 1fr 40px;
+  -ms-grid-rows: 1.5em max-content 1.5em;
+      grid-template-rows: 1.5em -webkit-max-content 1.5em;
+      grid-template-rows: 1.5em max-content 1.5em;
+      grid-template-areas: "space1 cityType space2" "icon city delete" "empty empty empty";
+}
+
+.city .weatherIcon {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: icon;
+}
+
+.city .cityType {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: cityType;
+  padding-top: 0.5em;
+}
+
+.city .cityWeather {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: city;
+  padding: 0;
+}
+
+.city .cityWeather p {
+  margin-top: 0;
+}
+
+.city .cityName {
+  text-transform: capitalize;
+  font-size: 2.5em;
+}
+
+.city .temperature {
+  font-size: 1.3em;
+}
+
+.centered {
+  grid-area: "city";
+}
+
+/*placehoader loader styles*/
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #059191;
+  -webkit-animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+          animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  -webkit-animation-delay: -0.24s;
+          animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  -webkit-animation-delay: -0.12s;
+          animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+
+@-webkit-keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
