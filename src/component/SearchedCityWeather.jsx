@@ -9,11 +9,31 @@ const SearchedCityWeather = () => {
   );
   const onLoadReducer = useSelector((state) => state.onLoadReducer);
   const notificationReducer = useSelector((state) => state.notificationReducer);
+  const weatherApiReducer = useSelector((state) => state.weatherApiReducer);
 
   if (notificationReducer.message === "error" || onLoadReducer) {
     return (
       <>
         <div id="city"></div>
+      </>
+    );
+  } else if (weatherApiReducer) {
+    return (
+      <>
+        <div id="city" className="city bordered error">
+          <div className="cityWeather text-white">
+            <p>
+              Sorry{" "}
+              <span role="img" aria-label="emoji">
+                😞
+              </span>
+              <br />
+              Can't load weather at this moment
+              <br />
+              Please try again later
+            </p>
+          </div>
+        </div>
       </>
     );
   }

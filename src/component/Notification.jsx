@@ -3,7 +3,21 @@ import { useSelector } from "react-redux";
 
 const Notification = () => {
   const notificationReducer = useSelector((state) => state.notificationReducer);
-  if (notificationReducer.message === "success") {
+  const searchLoaderReducer = useSelector((state) => state.searchLoaderReducer);
+
+  if (searchLoaderReducer) {
+    return (
+      <>
+        <div id="notification">
+          <div className="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </>
+    );
+  } else if (notificationReducer.message === "success") {
     return (
       <>
         <div id="notification" className="success">

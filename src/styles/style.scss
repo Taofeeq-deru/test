@@ -105,6 +105,9 @@ body {
       margin-top: 0;
     }
   }
+  .text-white {
+    color: $textWhite;
+  }
   .cityName {
     text-transform: capitalize;
     font-size: 2.5em;

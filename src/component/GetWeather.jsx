@@ -7,6 +7,8 @@ import {
   loaded_and_error,
   loaded_and_success,
   done_loading,
+  owm_error,
+  no_owm_error,
 } from "../actions";
 import OwnCityWeather from "./OwnCityWeather";
 import SearchedCityWeather from "./SearchedCityWeather";
@@ -25,8 +27,14 @@ const GetWeather = () => {
       .then((data) => {
         //if city is in open weather map database give succes else give error
         if (data.cod === 200) {
+          //remove loading icon
+          dispatch(done_loading());
+          //show success
           dispatch(loaded_and_success());
         } else {
+          //remove loading icon
+          dispatch(done_loading());
+          //show error
           dispatch(loaded_and_error());
         }
 
@@ -50,11 +58,12 @@ const GetWeather = () => {
           );
         }
 
-        //remove loading icon
-        dispatch(done_loading());
-        dispatch(loaded());
+        dispatch(no_owm_error());
       })
-      .catch((error) => dispatch(loaded_and_error()));
+      .catch((error) => {
+        dispatch(loaded());
+        dispatch(owm_error());
+      });
   };
 
   useEffect(() => {
