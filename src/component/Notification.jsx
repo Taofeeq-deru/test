@@ -3,7 +3,22 @@ import { useSelector } from "react-redux";
 
 const Notification = () => {
   const notificationReducer = useSelector((state) => state.notificationReducer);
-  if (notificationReducer.message === "success") {
+  const searchLoaderReducer = useSelector((state) => state.searchLoaderReducer);
+  const weatherApiReducer = useSelector((state) => state.weatherApiReducer);
+
+  if (searchLoaderReducer) {
+    return (
+      <>
+        <div id="notification">
+          <div className="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </>
+    );
+  } else if (notificationReducer.message === "success") {
     return (
       <>
         <div id="notification" className="success">
@@ -27,6 +42,12 @@ const Notification = () => {
             </span>
           </p>
         </div>
+      </>
+    );
+  } else if (notificationReducer.message === "error" && weatherApiReducer) {
+    return (
+      <>
+        <div id="notification"></div>
       </>
     );
   } else if (notificationReducer.message === "error") {

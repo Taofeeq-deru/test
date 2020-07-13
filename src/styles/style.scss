@@ -25,6 +25,8 @@ body {
   background-color: $bgNeutral;
   color: $textWhite;
   padding-left: 7%;
+  display: flex;
+  align-items: center;
   grid-area: head;
 }
 
@@ -66,12 +68,15 @@ body {
   color: $textWhite;
 }
 
-#cityInput {
-  @include inputStyle();
-}
+#formInput {
+  display: inline;
+  #cityInput {
+    @include inputStyle();
+  }
 
-#submitBtn {
-  @include btnStyle();
+  #submitBtn {
+    @include btnStyle();
+  }
 }
 
 .bordered {
@@ -97,6 +102,9 @@ body {
   .cityType {
     grid-area: cityType;
     padding-top: 0.5em;
+    small {
+      color: #9c9ea0;
+    }
   }
   .cityWeather {
     grid-area: city;
@@ -104,6 +112,9 @@ body {
     p {
       margin-top: 0;
     }
+  }
+  .text-white {
+    color: $textWhite;
   }
   .cityName {
     text-transform: capitalize;

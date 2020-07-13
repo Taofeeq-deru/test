@@ -1,17 +1,27 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { geolocation } from "../actions";
+import {
+  geolocation,
+  geo_error,
+  no_geo_error,
+  geolocation_supported,
+  geolocation_not_supported,
+  loaded,
+} from "../actions";
 import GetWeather from "./GetWeather";
 
 const Geolocation = () => {
-  //const cityReducer = useSelector((state) => state.cityReducer);
   const dispatch = useDispatch();
 
   const getLocation = () => {
-    //get location if geolocation is supported, if not console.log
-    navigator.geolocation
-      ? navigator.geolocation.getCurrentPosition(showPosition)
-      : console.log("geolocation not supported");
+    //get location if geolocation is supported, if not dispatch geolocation not supported
+    if (navigator.geolocation) {
+      dispatch(geolocation_supported());
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      dispatch(geolocation_not_supported());
+      dispatch(loaded());
+    }
   };
 
   const showPosition = (position) => {
@@ -39,9 +49,13 @@ const Geolocation = () => {
 
         let ownCity = geoCity.toLowerCase();
 
+        dispatch(no_geo_error());
         dispatch(geolocation(ownCity));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        dispatch(geo_error());
+        dispatch(loaded());
+      });
   };
 
   useEffect(() => {
