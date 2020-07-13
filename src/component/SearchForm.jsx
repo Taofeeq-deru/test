@@ -34,12 +34,12 @@ const SearchForm = () => {
   return (
     <form action="" method="" id="cityForm" onSubmit={handleFormSubmission}>
       <div id="formInput">
+        {/* prettier-ignore */}
         <input
           type="text"
           name="city"
           id="cityInput"
-          placeholder="Enter City Name"
-        />
+          placeholder="Enter City Name" />
         <button type="submit" id="submitBtn">
           See Weather
         </button>
