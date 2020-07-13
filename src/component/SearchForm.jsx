@@ -23,20 +23,17 @@ const SearchForm = () => {
     ) {
       dispatch(loaded_and_neutral());
     } else {
-      // if (notificationReducer.message === "error") {
-      //   dispatch(own());
-      // }
+      //get searched city weather
+      dispatch(other());
       //dispatch city name
       dispatch(search(searchedCity));
       //show loading
       dispatch(search_loading());
-      //change on load to other so that searched city weather will show
-      dispatch(other());
     }
   };
   return (
     <form action="" method="" id="cityForm" onSubmit={handleFormSubmission}>
-      <div>
+      <div id="formInput">
         <input
           type="text"
           name="city"

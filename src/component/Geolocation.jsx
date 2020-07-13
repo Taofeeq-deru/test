@@ -11,7 +11,6 @@ import {
 import GetWeather from "./GetWeather";
 
 const Geolocation = () => {
-  //const cityReducer = useSelector((state) => state.cityReducer);
   const dispatch = useDispatch();
 
   const getLocation = () => {

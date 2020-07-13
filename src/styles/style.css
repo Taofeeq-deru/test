@@ -78,7 +78,11 @@ body {
   color: #fff;
 }
 
-#cityInput {
+#formInput {
+  display: inline;
+}
+
+#formInput #cityInput {
   height: 2.7em;
   width: 16em;
   border: 1px solid #777777;
@@ -87,13 +91,13 @@ body {
   padding-left: 1em;
 }
 
-#cityInput:focus {
+#formInput #cityInput:focus {
   -webkit-box-shadow: 0 0 2px 1px #0099ff;
           box-shadow: 0 0 2px 1px #0099ff;
   border: #0099ff;
 }
 
-#submitBtn {
+#formInput #submitBtn {
   height: 3em;
   width: 7em;
   background-color: #0099ff;
@@ -107,13 +111,13 @@ body {
   transition: all 0.05s ease-in;
 }
 
-#submitBtn:hover {
+#formInput #submitBtn:hover {
   cursor: pointer;
   background-color: #41adf5;
   font-weight: bolder;
 }
 
-#submitBtn:focus {
+#formInput #submitBtn:focus {
   outline: none;
 }
 
@@ -149,6 +153,10 @@ body {
   -ms-grid-column: 2;
   grid-area: cityType;
   padding-top: 0.5em;
+}
+
+.city .cityType small {
+  color: #9c9ea0;
 }
 
 .city .cityWeather {

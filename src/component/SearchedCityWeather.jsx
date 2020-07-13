@@ -10,8 +10,13 @@ const SearchedCityWeather = () => {
   const onLoadReducer = useSelector((state) => state.onLoadReducer);
   const notificationReducer = useSelector((state) => state.notificationReducer);
   const weatherApiReducer = useSelector((state) => state.weatherApiReducer);
+  const searchLoaderReducer = useSelector((state) => state.searchLoaderReducer);
 
-  if (notificationReducer.message === "error" || onLoadReducer) {
+  if (
+    notificationReducer.message === "error" ||
+    onLoadReducer ||
+    searchLoaderReducer
+  ) {
     return (
       <>
         <div id="city"></div>
@@ -47,7 +52,9 @@ const SearchedCityWeather = () => {
             id="cityIcon"
           />
         </div>
-        <div id="searchedCityType" className="cityType"></div>
+        <div id="searchedCityType" className="cityType">
+          <small>Searched city's weather</small>
+        </div>
         <div id="cityWeather" className="cityWeather">
           <p>
             <span className="cityName" id="own">

@@ -75,14 +75,14 @@ export const loaded_and_neutral = () => {
   };
 };
 
-//doesn't display searched city weather
+//get geolocation city weather
 export const own = () => {
   return {
     type: "OWN",
   };
 };
 
-//displays searched city's weather
+//get searched city weather
 export const other = () => {
   return {
     type: "OTHER",

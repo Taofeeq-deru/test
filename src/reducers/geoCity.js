@@ -1,4 +1,4 @@
-const geoCityReducer = (state = "Kaduna", action) => {
+const geoCityReducer = (state = "Lagos", action) => {
   switch (action.type) {
     case "GEOLOCATION":
       return action.payload;

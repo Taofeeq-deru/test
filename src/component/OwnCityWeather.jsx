@@ -92,7 +92,9 @@ const OwnCityWeather = () => {
             id="cityIcon"
           />
         </div>
-        <div id="yourCityType" className="cityType"></div>
+        <div id="yourCityType" className="cityType">
+          <small>Your city's weather</small>
+        </div>
         <div id="ownCityWeather" className="cityWeather">
           <p>
             <span className="cityName" id="own">

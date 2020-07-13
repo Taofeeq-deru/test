@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 const Notification = () => {
   const notificationReducer = useSelector((state) => state.notificationReducer);
   const searchLoaderReducer = useSelector((state) => state.searchLoaderReducer);
+  const weatherApiReducer = useSelector((state) => state.weatherApiReducer);
 
   if (searchLoaderReducer) {
     return (
@@ -41,6 +42,12 @@ const Notification = () => {
             </span>
           </p>
         </div>
+      </>
+    );
+  } else if (notificationReducer.message === "error" && weatherApiReducer) {
+    return (
+      <>
+        <div id="notification"></div>
       </>
     );
   } else if (notificationReducer.message === "error") {

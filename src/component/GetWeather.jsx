@@ -61,7 +61,7 @@ const GetWeather = () => {
         dispatch(no_owm_error());
       })
       .catch((error) => {
-        dispatch(loaded());
+        if (onLoadReducer) dispatch(loaded());
         dispatch(owm_error());
       });
   };
